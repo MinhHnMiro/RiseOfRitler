@@ -1,0 +1,4 @@
+screen_size=FULL
+username=MinhHnMiro
+FPS=60
+showFPS=1

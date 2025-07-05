@@ -47,7 +47,6 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             x, y = wn.get_size()
-            print(x, y)
             with open('Assets/MEM/Settings.txt', 'r') as f:
                 g = f.read().split('\n')
                 f.close()
