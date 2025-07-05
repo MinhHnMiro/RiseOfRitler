@@ -31,8 +31,18 @@ def check_collision(first, second):
 
 def normalize(vector):
     pytha = sqrt(vector[0]**2 + vector[1]**2)
-    x = vector[0] / pytha
-    y = vector[1] / pytha
+    try:
+        x = vector[0] / pytha
+    except ZeroDivisionError:
+        x = 0
+    except Exception as e:
+        print(e)
+    try:
+        y = vector[1] / pytha
+    except ZeroDivisionError:
+        y = 0
+    except Exception as e:
+        print(e)
     return [x, y]
 
 class Sprite:
@@ -88,7 +98,7 @@ class Sprite:
                     pr[i] *= self.speed
                 self.dx, self.dy = pr
                 if 5 > self.x - self.target.pos()[0] > -5 and 5 > self.y - self.target.pos()[1] > -5:
-                    self.target = None
+                    self.dx, self.dy = (0,0)
                 
             self.x += self.dx
             self.y += self.dy
